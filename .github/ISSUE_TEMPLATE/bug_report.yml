@@ -1,0 +1,40 @@
+name: Reporte de error
+description: Reporta un comportamiento incorrecto y reproducible.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción
+      description: ¿Qué ocurrió y qué esperabas?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Pasos para reproducir
+      placeholder: Incluye un ejemplo mínimo, comandos y datos no sensibles.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versión o commit
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Entorno
+      description: SO, compilador/Python, solver y dependencias relevantes.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Verificación
+      options:
+        - label: Busqué issues existentes y no incluí secretos ni datos sensibles.
+          required: true
+

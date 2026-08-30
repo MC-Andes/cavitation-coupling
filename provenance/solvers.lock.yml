@@ -1,0 +1,54 @@
+lock_format: 1
+generated_utc: "2026-08-30T00:00:00Z"
+status: planning-only-no-external-solver-run
+selected_mpm:
+  name: kratos_mpm_application
+  url: https://github.com/KratosMultiphysics/Kratos
+  release: v10.4.3
+  audited_revision: 96bad120e292818e24589cb5edc5a1237c89c550
+  development_revision_audited: a81621f9d2697433b52ce5969d6cf1629c5a11e4
+  simulation_revision: null
+  license: BSD-4-Clause
+  python_packages:
+    KratosMPMApplication: 10.4.3
+    KratosMultiphysics: 10.4.3
+    KratosLinearSolversApplication: 10.4.3
+  execution_mode: openmp-linux-wheel
+organization_sources:
+  standards:
+    url: https://github.com/MC-Andes/standards
+    revision: 6fd973708f0940597ba6e8fbbcfc7676350f5a4e
+  template_python_mech:
+    url: https://github.com/MC-Andes/template-python-mech
+    revision: 9f3de3aaab5c69f23721f2f4fd47f3c8f2a42db8
+  template_docs:
+    url: https://github.com/MC-Andes/template-docs
+    revision: 378dc16367701eaab4f8db6269422e9647c4ef30
+audited_candidates:
+  basilisk:
+    url: https://basilisk.fr/src/
+    source_snapshot_or_revision: null
+    required_before_first_run: true
+    license_audit_required_for_derived_c_files: true
+  uintah:
+    url: https://github.com/Uintah/Uintah
+    audited_revision: b2e56c55876835a97ce660e8a22018b0ed21e56e
+    simulation_revision: null
+    license: MIT
+    selection_status: not-selected
+  cb_geo_mpm:
+    url: https://github.com/cb-geo/mpm
+    audited_revision: 53fcb7609375fd44bf3481d24ee18bfdf0393adb
+    license: MIT
+  anura3d:
+    url: https://github.com/Anura3D/Anura3D_OpenSource
+    audited_revision: d5cdf976ce405d0de4c202f8319c80b2dcfb1075
+    license: LGPL-3.0-or-later
+  karamelo:
+    url: https://github.com/adevaucorbeil/karamelo
+    audited_revision: 08e444db1da9d771b3151ca47dce6dc049b4ccb1
+    license: GPL-2.0
+  fenicsx:
+    url: https://github.com/FEniCS/dolfinx
+    simulation_revision: null
+    required_before_first_run: true

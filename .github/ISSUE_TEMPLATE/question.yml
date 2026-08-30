@@ -1,0 +1,19 @@
+name: Pregunta técnica
+description: Solicita aclaración sobre uso, alcance o diseño.
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexto
+      description: ¿Qué intentas hacer y qué documentación consultaste?
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Pregunta
+    validations:
+      required: true
+

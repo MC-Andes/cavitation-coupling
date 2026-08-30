@@ -1,0 +1,12 @@
+{
+  "python_module": "axisymmetric_hdf5_point_load_process",
+  "process_name": "AxisymmetricHdf5PointLoadProcess",
+  "Parameters": {
+    "model_part_name": "Background_Grid.CavitationLoad",
+    "kratos_loads_hdf5": "cavitation.kratos-loads.v1.h5",
+    "material_points_per_condition": 1,
+    "time_sampling": "step_average",
+    "coordinate_tolerance_m": 1e-10,
+    "diagnostics_csv": "results/kratos-applied-loads.csv"
+  }
+}

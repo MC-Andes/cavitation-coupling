@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mc-andes-cavitation-coupling"
+version = "0.1.0"
+description = "Conservative offline coupling of Basilisk wall loads to Kratos MPM"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "MC-Andes contributors"}]
+dependencies = [
+  "h5py>=3.11",
+  "numpy>=1.26,<2.3",
+]
+
+[project.urls]
+Repository = "https://github.com/MC-Andes/cavitation-coupling"
+Issues = "https://github.com/MC-Andes/cavitation-coupling/issues"
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.10",
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "ruff>=0.6",
+]
+docs = [
+  "mkdocs-material==9.6.18",
+  "pymdown-extensions>=10.8",
+]
+kratos = [
+  "KratosMPMApplication==10.4.3; platform_system == 'Linux' and platform_machine == 'x86_64'",
+]
+
+[project.scripts]
+cavitation-coupling = "cavitation_coupling.cli:main"
+cavitation-kratos-export = "cavitation_coupling.kratos:main"
+cavitation-paraview-export = "cavitation_coupling.paraview_export:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=cavitation_coupling --cov-report=term-missing --cov-fail-under=90"
+testpaths = ["tests"]
+markers = ["kratos: requires the external Kratos MPMApplication runtime"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src"]
+
+[[tool.mypy.overrides]]
+module = ["h5py", "h5py.*"]
+ignore_missing_imports = true

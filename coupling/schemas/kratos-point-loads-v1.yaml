@@ -1,0 +1,79 @@
+schema_name: mc-andes-kratos-mpm-point-loads
+schema_version: 1.0.0
+units_system: SI
+root_attributes:
+  required:
+    - schema_name
+    - schema_version
+    - case_id
+    - complete
+    - units_system
+    - pressure_convention
+    - load_semantics
+    - metadata_json
+datasets:
+  source/time:
+    shape: [n_times]
+    dtype: float64
+    units: s
+    constraints: [finite, strictly_increasing]
+  source/radial_edges:
+    shape: [n_annuli_plus_one]
+    dtype: float64
+    units: m
+    constraints: [finite, nonnegative, strictly_increasing]
+  source/pressure_gauge:
+    shape: [n_times, n_annuli]
+    dtype: float64
+    units: Pa
+    representation: annulus_area_average
+  conditions/ids:
+    shape: [n_conditions]
+    dtype: int64
+    constraints: [positive, unique]
+  conditions/coordinates_initial:
+    shape: [n_conditions, 3]
+    dtype: float64
+    units: m
+  conditions/tributary_area:
+    shape: [n_conditions]
+    dtype: float64
+    units: m2
+    constraints: [finite, positive]
+  conditions/outward_normal:
+    shape: [n_conditions, 3]
+    dtype: float64
+    constraints: [finite, unit_vector]
+  loads/pressure_gauge:
+    shape: [n_times, n_conditions]
+    dtype: float64
+    units: Pa
+  loads/point_force:
+    shape: [n_times, n_conditions, 3]
+    dtype: float64
+    units: N
+    sign_convention: minus_pressure_times_area_times_outward_normal
+  diagnostics/source_force:
+    shape: [n_times]
+    dtype: float64
+    units: N
+  diagnostics/target_force:
+    shape: [n_times]
+    dtype: float64
+    units: N
+invariants:
+  - point forces are already integrated and must be assigned to POINT_LOAD
+  - never multiply loads/point_force by MPC_AREA or by 2*pi*r
+  - condition matching uses initial coordinates and must be one-to-one
+  - complete must be true before the file is consumed
+  - source and target force and impulse errors must be below acceptance limits
+metadata_required:
+  - source_schema_name
+  - source_schema_version
+  - source_sha256
+  - surface_sha256
+  - mapping
+  - map_radius_m
+  - wall_origin_m
+  - wall_x_axis
+  - wall_y_axis

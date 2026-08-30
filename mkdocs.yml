@@ -1,0 +1,31 @@
+site_name: Acoplamiento Basilisk–MPM para cavitación
+site_description: Estrategia reproducible para cargas de cavitación y sólidos MPM
+theme:
+  name: material
+  language: es
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+nav:
+  - Inicio y MVP: index.md
+  - Framework actual y plan 2D: framework-and-2d-roadmap.md
+  - Problema físico y Basilisk: physics.md
+  - Selección y modelo MPM: mpm.md
+  - Transferencia conservativa: coupling.md
+  - Implementación y publicación: implementation.md
+  - Verificación, validación y riesgos: verification.md
+  - Reproducibilidad: reproducibility.md
+  - Referencias: references.md
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+strict: true

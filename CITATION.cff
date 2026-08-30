@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Si usa este software, cite esta versión y los solvers y datos primarios empleados."
+title: "Acoplamiento Basilisk–MPM para cavitación"
+type: software
+authors:
+  - name: "MC-Andes contributors"
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/MC-Andes/cavitation-coupling"
+keywords:
+  - cavitation
+  - material point method
+  - basilisk
+  - kratos multiphysics
+  - conservative coupling
