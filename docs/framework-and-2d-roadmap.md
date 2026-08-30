@@ -205,11 +205,15 @@ implementadas en esa ruta, mientras que la condición puntual usa área unitaria
 Para un paso sólido \([t_n,t_{n+1}]\), el proceso aplica el promedio exacto del
 interpolante lineal almacenado:
 
+<!-- markdownlint-disable MD049 -->
+
 \[
 \bar{\mathbf f}^{\,n+1/2}_a =
 \frac{1}{t_{n+1}-t_n}
 \int_{t_n}^{t_{n+1}}\mathbf f_a(t)\,dt.
 \]
+
+<!-- markdownlint-enable MD049 -->
 
 Esto conserva el impulso aunque un paso MPM cruce uno o varios tiempos del HDF5.
 No se permite extrapolación. La simulación debe comenzar y terminar dentro del
@@ -308,14 +312,14 @@ añaden complejidad física.
 
 ### P0. Entorno Kratos reproducible
 
-**Acciones**
+#### Acciones
 
 - ejecutar Linux x86-64 con Python 3.11 y Kratos MPMApplication 10.4.3;
 - fijar wheel/commit, número de hilos OpenMP, CPU y comando;
 - ejecutar un ejemplo axisimétrico oficial sin modificaciones;
 - importar el proceso HDF5 del repositorio.
 
-**Aceptación**
+#### Aceptación
 
 - imports y ejemplo oficial terminan con código 0;
 - no hay versiones flotantes en el manifiesto;
@@ -323,14 +327,14 @@ añaden complejidad física.
 
 ### P1. Semántica de <code>POINT_LOAD</code> y del factor axisimétrico
 
-**Acciones**
+#### Acciones
 
 - construir un modelo mínimo con una sola condición <code>Point3D</code>;
 - aplicar una fuerza constante conocida y medir reacción/cambio de momento;
 - repetir con 2, 4 y 8 anillos bajo presión uniforme;
 - comprobar \(F=p\pi R^2\) y que el resultado no escala otra vez con \(2\pi r\).
 
-**Aceptación**
+#### Aceptación
 
 - error de fuerza e impulso menor que \(10^{-10}\) en el adaptador;
 - error del runtime menor que \(10^{-8}\) o tolerancia explicada por el integrador;
@@ -342,13 +346,13 @@ la condición antes de crear el caso completo.
 
 ### P2. Pulso temporal no alineado
 
-**Acciones**
+#### Acciones
 
 - usar pulsos triangular y rectangular cuyos quiebres no coincidan con pasos MPM;
 - comparar muestreo <code>linear</code> y <code>step_average</code>;
 - integrar <code>diagnostics_csv</code> y el HDF5 fuente.
 
-**Aceptación**
+#### Aceptación
 
 - <code>step_average</code> conserva el impulso a precisión de máquina en el
   adaptador;
@@ -357,7 +361,7 @@ la condición antes de crear el caso completo.
 
 ### P3. Onda elástica 1D embebida en el dominio axisimétrico
 
-**Acciones**
+#### Acciones
 
 - aplicar un pulso radialmente uniforme sobre toda la cara superior;
 - registrar llegada de onda a sondas de profundidad;
@@ -365,7 +369,7 @@ la condición antes de crear el caso completo.
   \(\rho c_L\);
 - revisar momento y energías.
 
-**Aceptación**
+#### Aceptación
 
 - error de velocidad de onda menor que 2 % en la región de interés;
 - residuo \(|E_k+E_e-W_{ext}-E_0|/E_{scale}<2\%\);
@@ -373,7 +377,7 @@ la condición antes de crear el caso completo.
 
 ### P4. Pared 2D bajo presión localizada
 
-**Acciones**
+#### Acciones
 
 - ejecutar primero una presión uniforme sobre disco y después un perfil radial
   cuadrático;
@@ -381,7 +385,7 @@ la condición antes de crear el caso completo.
 - visualizar la propagación y la dispersión del frente de onda;
 - verificar fuerza, impulso, desplazamiento máximo y simetría del eje.
 
-**Aceptación**
+#### Aceptación
 
 - error global de fuerza e impulso menor que 1 %; objetivo algebraico
   \(10^{-10}\) cuando los anillos están alineados;
@@ -399,7 +403,7 @@ Se cruzarán de forma secuencial, no en un factorial completo:
 4. traslación del grid por media celda para revelar *grid crossing noise*;
 5. radios y profundidades del dominio para separar reflexiones.
 
-**Aceptación**
+#### Aceptación
 
 - cambio menor que 2 % entre las dos resoluciones más finas para llegada de onda
   y desplazamiento máximo filtrado;
@@ -413,7 +417,7 @@ Se aplicará la misma carga mapeada a un modelo lineal axisimétrico en FEniCSx 
 una solución analítica adecuada. Se compararán campos proyectados a una malla
 común, no máximos singulares en puntos aislados.
 
-**Aceptación**
+#### Aceptación
 
 - diferencia menor que 5 % en desplazamiento máximo y energía elástica;
 - misma tendencia al refinar;
@@ -426,7 +430,7 @@ Ese archivo debe incluir commit del solver/exportador, EOS, \(R_0\), *stand-off*
 presión de referencia, niveles AMR, \(\Delta_{min}\), cadencia y estudio de
 convergencia.
 
-**Aceptación**
+#### Aceptación
 
 - carga fluida convergida en impulso y resolución temporal;
 - fuerza/impulso conservados al mapear;
