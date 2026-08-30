@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="300" viewBox="0 0 1180 300" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo de datos unidireccional Basilisk a MPM</title>
+  <desc id="desc">Basilisk produce cargas de pared en HDF5, el operador conservativo genera fuerzas puntuales para Kratos MPM y FEniCSx aporta una referencia lineal. No hay realimentación al fluido.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#345995"/></marker>
+    <style>
+      .box{fill:#f7f9fc;stroke:#345995;stroke-width:2;rx:12}
+      .title{font:700 18px sans-serif;fill:#172b4d}
+      .body{font:14px sans-serif;fill:#334e68}
+      .arrow{stroke:#345995;stroke-width:2.5;marker-end:url(#arrow)}
+      .dash{stroke:#b83280;stroke-width:2;stroke-dasharray:7 6;marker-end:url(#arrow)}
+      .note{font:italic 13px sans-serif;fill:#b83280}
+    </style>
+  </defs>
+  <rect class="box" x="20" y="65" width="225" height="150"/>
+  <text class="title" x="132" y="98" text-anchor="middle">Basilisk 2-D axi</text>
+  <text class="body" x="40" y="128">VOF + flujo compresible</text>
+  <text class="body" x="40" y="152">pared rígida, p y τ</text>
+  <text class="body" x="40" y="176">AMR + metadatos</text>
+  <line class="arrow" x1="245" y1="140" x2="305" y2="140"/>
+  <rect class="box" x="305" y="65" width="225" height="150"/>
+  <text class="title" x="418" y="98" text-anchor="middle">HDF5 v1</text>
+  <text class="body" x="325" y="128">p̄(r,t) manométrica</text>
+  <text class="body" x="325" y="152">bordes de anillos, SI</text>
+  <text class="body" x="325" y="176">impulso + procedencia</text>
+  <line class="arrow" x1="530" y1="140" x2="590" y2="140"/>
+  <rect class="box" x="590" y="65" width="240" height="150"/>
+  <text class="title" x="710" y="98" text-anchor="middle">Operador conservativo</text>
+  <text class="body" x="610" y="128">r = √(x²+y²)</text>
+  <text class="body" x="610" y="152">intersección anillo–parche</text>
+  <text class="body" x="610" y="176">fuerza e impulso &lt; 1 %</text>
+  <line class="arrow" x1="830" y1="115" x2="900" y2="82"/>
+  <line class="arrow" x1="830" y1="165" x2="900" y2="198"/>
+  <rect class="box" x="900" y="25" width="255" height="105"/>
+  <text class="title" x="1027" y="58" text-anchor="middle">Kratos MPM</text>
+  <text class="body" x="922" y="86">elástico → plástico → daño</text>
+  <text class="body" x="922" y="108">recubrimiento + sustrato</text>
+  <rect class="box" x="900" y="170" width="255" height="105"/>
+  <text class="title" x="1027" y="203" text-anchor="middle">FEniCSx lineal</text>
+  <text class="body" x="922" y="231">referencia independiente</text>
+  <text class="body" x="922" y="253">u, σ y energías</text>
+  <path class="dash" d="M1000 25 C850 -10, 200 -10, 130 60" fill="none"/>
+  <text class="note" x="560" y="20" text-anchor="middle">sin realimentación de deformación en el MVP</text>
+</svg>

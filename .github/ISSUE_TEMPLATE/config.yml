@@ -1,0 +1,6 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Normas de contribución
+    url: https://github.com/MC-Andes/standards/blob/main/CONTRIBUTING.md
+    about: Consulta el flujo, los requisitos y la Definition of Done.
+

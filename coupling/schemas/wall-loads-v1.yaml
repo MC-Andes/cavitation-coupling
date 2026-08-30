@@ -1,0 +1,57 @@
+schema_name: mc-andes-basilisk-wall-loads
+schema_version: 1.1.0
+units_system: SI
+root_attributes:
+  required:
+    - schema_name
+    - schema_version
+    - case_id
+    - complete
+    - units_system
+    - coordinate_system
+    - pressure_convention
+    - metadata_json
+datasets:
+  time:
+    shape: [n_times]
+    dtype: float64
+    units: s
+    constraints: [finite, strictly_increasing]
+  coordinates/radial_edges:
+    shape: [n_annuli_plus_one]
+    dtype: float64
+    units: m
+    constraints: [finite, nonnegative, strictly_increasing]
+  fields/pressure_gauge:
+    shape: [n_times, n_annuli]
+    dtype: float64
+    units: Pa
+    representation: annulus_area_average
+  fields/shear_radial:
+    shape: [n_times, n_annuli]
+    dtype: float64
+    units: Pa
+    representation: annulus_area_average
+  derived/impulse_pressure:
+    shape: [n_annuli]
+    dtype: float64
+    units: Pa s
+  derived/force_normal:
+    shape: [n_times]
+    dtype: float64
+    units: N
+production_metadata_required:
+  - basilisk_commit
+  - exporter_commit
+  - compiler
+  - command
+  - configuration_sha256
+  - bubble_radius_initial_m
+  - stand_off_m
+  - gamma
+  - reference_pressure_pa
+  - delta_min_m
+  - dt_output_max_s
+  - min_level
+  - max_level
+  - convergence_study_id

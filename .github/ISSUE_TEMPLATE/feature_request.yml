@@ -1,0 +1,26 @@
+name: Solicitud de funcionalidad
+description: Propón una mejora con motivación y criterios de aceptación.
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema o necesidad
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+      description: Describe solución, alternativas y compatibilidad.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación
+      placeholder: "- [ ] Resultado verificable"
+    validations:
+      required: true
+
