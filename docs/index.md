@@ -1,91 +1,82 @@
-# Estrategia técnica y producto mínimo viable
+---
+description: Transferencia conservativa de cargas de cavitación entre Basilisk y Kratos MPM. Modelo, ejemplos reproducibles y alcance del proyecto MC-Andes.
+---
 
-## Resultado perseguido
+# Colapso de burbujas y respuesta de paredes
 
-El estudio cuantificará cómo el espesor y una gradación **materialmente
-realizable** de impedancia modifican la transición elástica → plástica → daño
-incipiente causada por un colapso individual. La primera publicación no afirmará
-predecir erosión acumulada ni pérdida de masa sin calibración de falla y ensayos
-de múltiples colapsos.
+<p class="project-kicker">MC-Andes · Investigación en mecánica computacional</p>
 
-![Flujo de datos Basilisk a MPM](assets/data-flow.svg)
+<div class="project-intro" markdown>
 
-El acoplamiento es secuencial:
+De la presión de una burbuja a la carga que recibe una estructura.
+**Basilisk–MPM** organiza ese intercambio con unidades, procedencia y
+comprobaciones de fuerza e impulso.
 
-\[
-\text{Basilisk}\longrightarrow
-\{\bar p_w(r,t)-p_{\mathrm{ref}},\,\bar\tau_r(r,t),\,I(r)\}
-\longrightarrow\text{MPM}.
-\]
+</div>
 
-La barra superior denota promedio por área anular. La deformación del sólido no
-regresa a Basilisk.
+[Comenzar](getting-started.md){ .md-button .md-button--primary }
+[Ver el código](https://github.com/MC-Andes/cavitation-coupling){ .md-button }
 
-## MVP verificable
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/data-flow-mobile.svg">
+  <img src="assets/data-flow.svg" alt="Esquema del método: fluido, transferencia de cargas y estructura; sin realimentación al fluido.">
+</picture>
 
-1. Reproducir en Basilisk el colapso esférico compresible y luego una cavidad
-   gaseosa axisimétrica cerca de una pared rígida.
-2. Exportar a HDF5 presión manométrica y tracción, conservando bordes de los
-   anillos, unidades, resolución y procedencia.
-3. Integrar la carga sobre condiciones puntuales de la superficie MPM, usando
-   áreas anulares en el caso axisimétrico o áreas tributarias en 3-D, y exigir
-   errores de fuerza e impulso menores a 1 %.
-4. Resolver un recubrimiento y sustrato **linealmente elásticos** con Kratos
-   Multiphysics MPMApplication 10.4.3.
-5. Ejecutar el mismo sólido y carga en FEniCSx, con malla y dominio independientes,
-   y comparar desplazamiento, tensión y energía antes de añadir plasticidad.
+!!! info "Alcance publicado"
+    La versión pública ofrece contratos HDF5, mapeo conservativo, un adaptador
+    para Kratos y ejemplos sintéticos. La investigación física está en
+    desarrollo; los ejemplos no son resultados validados de cavitación ni
+    predicciones de erosión. [Estado y limitaciones](project-status.md).
 
-El paquete Python ya implementa el contrato HDF5, la tabla de fuerzas para
-Kratos, el promedio temporal exacto por paso y una cuadratura globalmente
-conservativa. Para producción se
-precomputará la matriz de intersección anillo–parche descrita en
-[Transferencia conservativa](coupling.md); la corrección mínima L2 incluida en
-el helper actual es un verificador y una ruta de depuración, no sustituye el
-estudio de convergencia local del operador.
+## Un problema, tres componentes
 
-## Hipótesis y simplificaciones
+<div class="grid cards" markdown>
 
-| Decisión | Consecuencia controlada |
-| --- | --- |
-| Una cavidad aislada | Elimina interacción entre burbujas, núcleos y nubes; no representa cavitación desarrollada. |
-| Gas de masa fija, sin cambio de fase | El MVP no reproduce condensación de una burbuja de vapor. `p_{g0}` y la masa no condensable son incertidumbres. |
-| Pared plana y rígida en CFD | La presión no responde al desplazamiento ni a la impedancia del recubrimiento. |
-| Axisimetría en CFD | Excluye inestabilidades azimutales, rugosidad y chorros oblicuos; la carga alimenta el MVP MPM axisimétrico y una extensión 3-D. |
-| Acoplamiento unidireccional | Es válido solo mientras movimiento, velocidad y escala temporal de la pared no alteren de forma apreciable el hueco o el impacto. |
-| Un colapso | Permite hablar de deformación residual, daño incipiente o potencial de erosión; no de tasa de erosión. |
+- :material-waves: **Presión de la burbuja**
 
-La pared inicialmente plana no implica que el sólido sea infinitamente rígido:
-esa hipótesis solo pertenece a la etapa fluida. Su dominio de validez se audita
-con los criterios de [Verificación y riesgos](verification.md#validez-del-acoplamiento-unidireccional).
+    ---
 
-## Preguntas falsables
+    Una cavidad axisimétrica próxima a una pared rígida define el problema
+    fluido: geometría, ecuaciones, condiciones y escalas temporales.
 
-- A masa areal fija, ¿un perfil creciente de impedancia reduce la amplitud de la
-  onda reflejada en la superficie y la deformación plástica equivalente frente a
-  un recubrimiento homogéneo?
-- ¿Existe un espesor óptimo relativo a la duración del pulso,
-  \(h_c/(c_L\tau_p)\), y no solo relativo a \(R_0\)?
-- ¿Cambia el orden de desempeño cuando el tiempo de relajación hace
-  \(De=\tau_{\mathrm{relax}}/t_R\) de orden uno?
-- ¿Son robustas esas tendencias ante incertidumbre de alta tasa y ante el tamaño
-  equivalente del sensor usado para definir el pulso?
+    [Modelo físico](physics.md)
 
-## Cobertura de los entregables
+- :material-swap-horizontal: **Transferencia de cargas**
 
-| Entregable | Ubicación |
-| --- | --- |
-| Resumen, hipótesis y diagrama | esta página |
-| Ecuaciones, fronteras y parámetros | [Problema físico y Basilisk](physics.md) |
-| Selección del código y constitutivos | [Selección y modelo MPM](mpm.md) |
-| Algoritmo, HDF5 y pseudocódigo | [Transferencia conservativa](coupling.md) |
-| Etapas, DOE, costos, artículo y figuras | [Implementación y publicación](implementation.md) |
-| Matriz V&V, convergencia, riesgos | [Verificación y riesgos](verification.md) |
-| Versiones y ejecución | [Reproducibilidad](reproducibility.md) |
-| DOI y enlaces verificables | [Referencias](references.md) |
+    ---
 
-## Visualización
+    La presión media de cada anillo se integra en fuerzas superficiales.
+    El intercambio conserva unidades, tiempos y procedencia.
 
-`visualization/paraview/` convierte cualquier HDF5 v1 en una animación VTK de
-presión, un mapa radial–tiempo y una historia de fuerza. El ejemplo sintético
-incluye una escena reproducible para ParaView 6.1; los mismos artefactos se
-generarán sin cambiar el esquema cuando existan resultados Basilisk.
+    [Contrato y conservación](coupling.md)
+
+- :material-grid: **Respuesta de la pared**
+
+    ---
+
+    Kratos MPM es el solver estructural seleccionado. El primer caso plantea
+    una pared homogénea elástica bajo la carga transferida.
+
+    [Modelo MPM](mpm.md)
+
+</div>
+
+## Recorrido recomendado
+
+1. Ejecuta el [ejemplo de inicio](getting-started.md) para conocer los archivos
+   y comprobar el mapeo con una carga sintética.
+2. Revisa el [alcance publicado](project-status.md) y los supuestos del
+   [modelo físico](physics.md).
+3. Consulta [verificación y validación](verification.md) y
+   [reproducibilidad](reproducibility.md) antes de interpretar resultados.
+4. Explora el [plan técnico](framework-and-2d-roadmap.md) y las
+   [etapas de investigación](implementation.md) para contribuir al desarrollo.
+
+## Dentro de MC-Andes
+
+Este proyecto forma parte de la investigación abierta en mecánica computacional
+de [MC-Andes](https://mc-andes.github.io/). Comparte sus normas de contribución,
+revisión por pares y documentación reproducible.
+
+[Catálogo de proyectos](https://mc-andes.github.io/projects/){ .md-button }
+[Cómo contribuir](https://github.com/MC-Andes/cavitation-coupling/blob/main/CONTRIBUTING.md){ .md-button }

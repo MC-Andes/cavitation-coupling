@@ -7,6 +7,10 @@ Versioning.
 
 ### Changed
 
+- Reorganizada la presentación pública: README, portada, navegación, inicio
+  rápido, alcance publicado e identidad visual compartida con MC-Andes.
+- Añadidos metadatos de sitio y recuperación manual del despliegue de Pages.
+
 - Sustituido Uintah por Kratos Multiphysics MPMApplication 10.4.3 como solver
   sólido seleccionado.
 - Separada la presión canónica `p(r,t)` de las fuerzas puntuales integradas que

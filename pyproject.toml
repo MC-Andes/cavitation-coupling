@@ -16,6 +16,7 @@ dependencies = [
 ]
 
 [project.urls]
+Documentation = "https://mc-andes.github.io/cavitation-coupling/"
 Repository = "https://github.com/MC-Andes/cavitation-coupling"
 Issues = "https://github.com/MC-Andes/cavitation-coupling/issues"
 

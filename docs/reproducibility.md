@@ -40,7 +40,9 @@ python examples/synthetic_mapping.py
 python examples/kratos_load_table.py
 cavitation-coupling results/synthetic-wall-loads.h5
 cavitation-kratos-export \
-  results/synthetic-wall-loads.h5 surface-points.csv kratos-loads.v1.h5
+  results/synthetic-wall-loads.h5 \
+  results/kratos/synthetic-gaussian-pulse/surface-points.csv \
+  results/kratos/synthetic-gaussian-pulse/cli-loads.v1.h5
 ```
 
 En la auditoría local se usó Python 3.12.13. La CI repite pruebas en 3.11, 3.12 y

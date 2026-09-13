@@ -1,31 +1,62 @@
-site_name: Acoplamiento Basilisk–MPM para cavitación
-site_description: Estrategia reproducible para cargas de cavitación y sólidos MPM
+site_name: Cavitación · Basilisk–MPM
+site_url: https://mc-andes.github.io/cavitation-coupling/
+site_description: Acoplamiento conservativo de cargas de cavitación entre Basilisk y Kratos MPM. Un proyecto de MC-Andes.
+repo_url: https://github.com/MC-Andes/cavitation-coupling
+repo_name: MC-Andes/cavitation-coupling
+edit_uri: edit/main/docs/
 theme:
   name: material
   language: es
+  logo: assets/mark.svg
+  favicon: assets/mark.svg
   features:
     - navigation.sections
     - navigation.top
+    - navigation.footer
     - content.code.copy
+  palette:
+    primary: indigo
+    accent: deep orange
 nav:
-  - Inicio y MVP: index.md
-  - Framework actual y plan 2D: framework-and-2d-roadmap.md
-  - Problema físico y Basilisk: physics.md
-  - Selección y modelo MPM: mpm.md
-  - Transferencia conservativa: coupling.md
-  - Implementación y publicación: implementation.md
-  - Verificación, validación y riesgos: verification.md
-  - Reproducibilidad: reproducibility.md
+  - Inicio: index.md
+  - Comenzar:
+      - Inicio rápido: getting-started.md
+      - Estado y alcance: project-status.md
+  - Modelo:
+      - Burbuja y fluido: physics.md
+      - Pared y MPM: mpm.md
+      - Transferencia de cargas: coupling.md
+  - Verificación:
+      - Verificación y validación: verification.md
+      - Reproducibilidad: reproducibility.md
+  - Desarrollo:
+      - Plan técnico de la pared: framework-and-2d-roadmap.md
+      - Etapas de investigación: implementation.md
   - Referencias: references.md
 plugins:
   - search
 markdown_extensions:
   - admonition
   - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight
   - pymdownx.superfences
+extra_css:
+  - stylesheets/extra.css
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/MC-Andes/cavitation-coupling
+      name: Código en GitHub
+    - icon: material/home
+      link: https://mc-andes.github.io/
+      name: MC-Andes
+copyright: Copyright &copy; 2026 MC-Andes · Licencias y reconocimientos en el repositorio
 strict: true

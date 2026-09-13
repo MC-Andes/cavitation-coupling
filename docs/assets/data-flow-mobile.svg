@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="360" viewBox="0 0 420 360" role="img" aria-labelledby="title desc">
+  <title id="title">Fluido, transferencia y estructura</title>
+  <desc id="desc">Esquema unidireccional: presión de pared de Basilisk, transferencia por HDF5 a fuerzas e impulso, respuesta elástica en Kratos MPM. No son datos de una simulación.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#b44e00"/></marker>
+    <style>
+      .panel{fill:#f5f8fc;stroke:#d8e1eb;stroke-width:1.5}
+      .title{font:700 20px system-ui,sans-serif;fill:#173f73}
+      .body{font:16px system-ui,sans-serif;fill:#354b63}
+      .number{font:700 25px system-ui,sans-serif;fill:#b44e00}
+      .arrow{stroke:#b44e00;stroke-width:2;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect class="panel" x="2" y="4" width="416" height="84" rx="12"/>
+  <text class="number" x="26" y="54">01</text>
+  <text class="title" x="85" y="37">Fluido · Basilisk</text>
+  <text class="body" x="85" y="64">Presión sobre la pared rígida</text>
+  <path class="arrow" d="M210 94V112"/>
+  <rect class="panel" x="2" y="122" width="416" height="84" rx="12"/>
+  <text class="number" x="26" y="172">02</text>
+  <text class="title" x="85" y="155">Transferencia · HDF5</text>
+  <text class="body" x="85" y="182">Presión → fuerza e impulso</text>
+  <path class="arrow" d="M210 212V230"/>
+  <rect class="panel" x="2" y="240" width="416" height="84" rx="12"/>
+  <text class="number" x="26" y="290">03</text>
+  <text class="title" x="85" y="273">Estructura · Kratos MPM</text>
+  <text class="body" x="85" y="300">Respuesta de la pared elástica</text>
+  <text class="body" x="210" y="351" text-anchor="middle">Esquema · sin realimentación al fluido</text>
+</svg>
