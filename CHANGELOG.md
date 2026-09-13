@@ -7,6 +7,7 @@ Versioning.
 
 ### Changed
 
+- Presentación alineada con la identidad visual vigente del portal MC-Andes.
 - Reorganizada la presentación pública: README, portada, navegación, inicio
   rápido, alcance publicado e identidad visual compartida con MC-Andes.
 - Añadidos metadatos de sitio y recuperación manual del despliegue de Pages.

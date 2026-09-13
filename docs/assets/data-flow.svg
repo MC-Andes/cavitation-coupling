@@ -2,38 +2,38 @@
   <title id="title">Acoplamiento unidireccional Basilisk–HDF5–Kratos MPM</title>
   <desc id="desc">Esquema del método: presión de una burbuja junto a una pared rígida, transferencia de cargas por anillos y respuesta de una pared elástica. El desplazamiento no regresa al fluido. No representa resultados de una simulación.</desc>
   <defs>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#b44e00"/></marker>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#8b3a2f"/></marker>
     <style>
-      .panel{fill:#f5f8fc;stroke:#d8e1eb;stroke-width:1.5}
-      .title{font:700 23px system-ui,sans-serif;fill:#173f73}
-      .label{font:17px system-ui,sans-serif;fill:#354b63}
-      .note{font:15px system-ui,sans-serif;fill:#4c6076}
-      .arrow{fill:none;stroke:#b44e00;stroke-width:2.5;marker-end:url(#arrow)}
+      .panel{fill:#faf9f7;stroke:#d8d3cc;stroke-width:1.5}
+      .title{font:700 23px system-ui,sans-serif;fill:#2d5a4e}
+      .label{font:17px system-ui,sans-serif;fill:#1a1a1a}
+      .note{font:15px system-ui,sans-serif;fill:#5a5a5a}
+      .arrow{fill:none;stroke:#8b3a2f;stroke-width:2.5;marker-end:url(#arrow)}
     </style>
   </defs>
-  <rect x="1" y="1" width="998" height="308" rx="16" fill="#fff" stroke="#e4eaf1"/>
+  <rect x="1" y="1" width="998" height="308" rx="16" fill="#fff" stroke="#d8d3cc"/>
   <rect class="panel" x="24" y="28" width="280" height="222" rx="12"/>
   <rect class="panel" x="360" y="28" width="280" height="222" rx="12"/>
   <rect class="panel" x="696" y="28" width="280" height="222" rx="12"/>
   <text class="title" x="48" y="67">01 · Fluido</text>
   <text class="label" x="48" y="94">Basilisk · axisimetría</text>
-  <circle cx="164" cy="148" r="29" fill="#e1eefb" stroke="#173f73" stroke-width="2.5"/>
-  <path d="M77 193H251" stroke="#173f73" stroke-width="5"/>
+  <circle cx="164" cy="148" r="29" fill="#e4eee9" stroke="#2d5a4e" stroke-width="2.5"/>
+  <path d="M77 193H251" stroke="#2d5a4e" stroke-width="5"/>
   <path d="M164 179V189" class="arrow"/>
   <text class="note" x="164" y="226" text-anchor="middle">Presión sobre la pared rígida</text>
   <path class="arrow" d="M313 137H349"/>
   <text class="title" x="384" y="67">02 · Transferencia</text>
   <text class="label" x="384" y="94">HDF5 · unidades SI</text>
-  <ellipse cx="500" cy="153" rx="81" ry="35" fill="#fff" stroke="#173f73" stroke-width="2"/>
-  <ellipse cx="500" cy="153" rx="56" ry="24" fill="none" stroke="#173f73" stroke-width="1.5"/>
-  <ellipse cx="500" cy="153" rx="29" ry="12" fill="#fbe5d5" stroke="#b44e00" stroke-width="2"/>
+  <ellipse cx="500" cy="153" rx="81" ry="35" fill="#fff" stroke="#2d5a4e" stroke-width="2"/>
+  <ellipse cx="500" cy="153" rx="56" ry="24" fill="none" stroke="#2d5a4e" stroke-width="1.5"/>
+  <ellipse cx="500" cy="153" rx="29" ry="12" fill="#f2e6df" stroke="#8b3a2f" stroke-width="2"/>
   <text class="note" x="500" y="226" text-anchor="middle">Presión → fuerza e impulso</text>
   <path class="arrow" d="M650 137H686"/>
   <text class="title" x="720" y="67">03 · Estructura</text>
   <text class="label" x="720" y="94">Kratos · MPM</text>
-  <rect x="753" y="123" width="166" height="67" fill="#e1eefb" stroke="#173f73" stroke-width="2"/>
-  <path d="M794 123V190M836 123V190M878 123V190M753 156H919" stroke="#a4b9cf" stroke-width="1"/>
-  <g fill="#b44e00">
+  <rect x="753" y="123" width="166" height="67" fill="#e4eee9" stroke="#2d5a4e" stroke-width="2"/>
+  <path d="M794 123V190M836 123V190M878 123V190M753 156H919" stroke="#a2b6af" stroke-width="1"/>
+  <g fill="#8b3a2f">
     <circle cx="774" cy="140" r="4"/><circle cx="815" cy="140" r="4"/><circle cx="857" cy="140" r="4"/><circle cx="898" cy="140" r="4"/>
     <circle cx="774" cy="174" r="4"/><circle cx="815" cy="174" r="4"/><circle cx="857" cy="174" r="4"/><circle cx="898" cy="174" r="4"/>
   </g>

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title">
   <title id="title">Burbuja junto a una pared</title>
-  <rect width="48" height="48" rx="10" fill="#173f73"/>
+  <rect width="48" height="48" rx="10" fill="#2d5a4e"/>
   <circle cx="24" cy="18" r="10" fill="none" stroke="#ffffff" stroke-width="2.5"/>
   <circle cx="21" cy="15" r="3" fill="#ffffff" opacity=".35"/>
-  <path d="M8 35h32" stroke="#ffb36d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M8 35h32" stroke="#ead6bc" stroke-width="4" stroke-linecap="round"/>
 </svg>

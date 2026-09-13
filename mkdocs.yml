@@ -15,8 +15,8 @@ theme:
     - navigation.footer
     - content.code.copy
   palette:
-    primary: indigo
-    accent: deep orange
+    primary: custom
+    accent: custom
 nav:
   - Inicio: index.md
   - Comenzar:
@@ -47,6 +47,7 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
 extra_css:
+  - stylesheets/mc-andes-theme.css
   - stylesheets/extra.css
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

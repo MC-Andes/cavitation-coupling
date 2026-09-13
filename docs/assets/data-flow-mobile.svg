@@ -2,13 +2,13 @@
   <title id="title">Fluido, transferencia y estructura</title>
   <desc id="desc">Esquema unidireccional: presión de pared de Basilisk, transferencia por HDF5 a fuerzas e impulso, respuesta elástica en Kratos MPM. No son datos de una simulación.</desc>
   <defs>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#b44e00"/></marker>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#8b3a2f"/></marker>
     <style>
-      .panel{fill:#f5f8fc;stroke:#d8e1eb;stroke-width:1.5}
-      .title{font:700 20px system-ui,sans-serif;fill:#173f73}
-      .body{font:16px system-ui,sans-serif;fill:#354b63}
-      .number{font:700 25px system-ui,sans-serif;fill:#b44e00}
-      .arrow{stroke:#b44e00;stroke-width:2;marker-end:url(#arrow)}
+      .panel{fill:#faf9f7;stroke:#d8d3cc;stroke-width:1.5}
+      .title{font:700 20px system-ui,sans-serif;fill:#2d5a4e}
+      .body{font:16px system-ui,sans-serif;fill:#1a1a1a}
+      .number{font:700 25px system-ui,sans-serif;fill:#8b3a2f}
+      .arrow{stroke:#8b3a2f;stroke-width:2;marker-end:url(#arrow)}
     </style>
   </defs>
   <rect class="panel" x="2" y="4" width="416" height="84" rx="12"/>
