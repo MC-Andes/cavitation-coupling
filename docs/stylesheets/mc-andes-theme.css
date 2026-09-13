@@ -1,0 +1,208 @@
+/* MC-Andes portal theme (mc-andes.github.io, a72bfbe), with responsive spacing. */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap");
+
+:root,
+[data-md-color-scheme="default"] {
+  --mc-ink: #1a1a1a;
+  --mc-ink-light: #5a5a5a;
+  --mc-ink-faint: #77736e;
+  --mc-paper: #faf9f7;
+  --mc-paper-2: #f0ede8;
+  --mc-paper-3: #e8e4dd;
+  --mc-green: #2d5a4e;
+  --mc-red: #8b3a2f;
+  --mc-rule: #d8d3cc;
+  --mc-card: #ffffff;
+  --mc-serif: "EB Garamond", Georgia, serif;
+  --mc-sans: "DM Sans", system-ui, sans-serif;
+  --md-default-bg-color: var(--mc-paper);
+  --md-default-fg-color: var(--mc-ink);
+  --md-default-fg-color--light: var(--mc-ink-light);
+  --md-default-fg-color--lighter: var(--mc-ink-faint);
+  --md-primary-fg-color: var(--mc-green);
+  --md-primary-fg-color--light: #50786d;
+  --md-primary-fg-color--dark: #20443b;
+  --md-accent-fg-color: var(--mc-red);
+  --md-typeset-a-color: var(--mc-green);
+  --md-code-bg-color: var(--mc-paper-2);
+}
+
+body,
+input {
+  font-family: var(--mc-sans);
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-header__title,
+.md-nav__title {
+  font-family: var(--mc-serif);
+  letter-spacing: 0;
+}
+
+.md-typeset h1 {
+  color: var(--mc-ink);
+  font-size: 2.3rem;
+  font-weight: 500;
+  line-height: 1.12;
+  margin-bottom: 1rem;
+  text-wrap: balance;
+}
+
+.md-typeset h2 {
+  border-bottom: 1px solid var(--mc-rule);
+  color: var(--mc-ink);
+  font-size: 1.55rem;
+  font-weight: 500;
+  padding-bottom: 0.28rem;
+}
+
+.md-typeset h3 {
+  color: var(--mc-ink);
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+
+.md-header {
+  background: rgb(250 249 247 / 96%);
+  border-bottom: 1px solid var(--mc-rule);
+  box-shadow: none;
+  color: var(--mc-ink);
+}
+
+.md-header__button,
+.md-header__topic,
+.md-search__icon {
+  color: var(--mc-ink);
+}
+
+.md-search__form {
+  background: var(--mc-paper-2);
+  border: 1px solid var(--mc-rule);
+  border-radius: 3px;
+}
+
+.md-search__input::placeholder {
+  color: var(--mc-ink-light);
+}
+
+.md-main,
+.md-container {
+  background: var(--mc-paper);
+}
+
+.md-sidebar {
+  color: var(--mc-ink-light);
+}
+
+.md-nav__link--active,
+.md-nav__link:focus,
+.md-nav__link:hover {
+  color: var(--mc-green);
+}
+
+.md-typeset a {
+  text-decoration-color: rgb(45 90 78 / 35%);
+  text-underline-offset: 0.12em;
+}
+
+.md-typeset a:focus,
+.md-typeset a:hover {
+  color: var(--mc-red);
+  text-decoration-color: currentcolor;
+}
+
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li {
+  background: var(--mc-card);
+  border: 1px solid var(--mc-rule);
+  border-radius: 3px;
+  box-shadow: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > ol > li:hover {
+  border-color: #b7b0a6;
+  box-shadow: 0 6px 20px rgb(26 26 26 / 7%);
+  transform: translateY(-1px);
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  background: var(--mc-card);
+  border-color: var(--mc-rule);
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+.md-typeset table:not([class]) {
+  background: var(--mc-card);
+  border: 1px solid var(--mc-rule);
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--mc-paper-2);
+  color: var(--mc-ink);
+  font-family: var(--mc-sans);
+  font-weight: 600;
+}
+
+.md-typeset table:not([class]) td {
+  border-top-color: var(--mc-rule);
+}
+
+.md-typeset code {
+  border-radius: 2px;
+  font-variant-ligatures: none;
+}
+
+.md-typeset .md-button {
+  margin: 0.25rem 0.3rem 0.5rem 0;
+  border-color: var(--mc-green);
+  border-radius: 3px;
+  color: var(--mc-green);
+  font-weight: 500;
+}
+
+.md-typeset .md-button:focus,
+.md-typeset .md-button:hover,
+.md-typeset .md-button--primary {
+  background: var(--mc-green);
+  border-color: var(--mc-green);
+  color: #ffffff;
+}
+
+.md-footer {
+  background: var(--mc-ink);
+}
+
+.course-kicker {
+  color: var(--mc-green);
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 44.984375em) {
+  .md-typeset h1 {
+    font-size: 1.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
