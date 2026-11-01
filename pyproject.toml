@@ -32,7 +32,7 @@ docs = [
   "pymdown-extensions>=10.8",
 ]
 kratos = [
-  "KratosMPMApplication==10.4.3; platform_system == 'Linux' and platform_machine == 'x86_64'",
+  "KratosMPMApplication==10.4.4; platform_system == 'Linux' and platform_machine == 'x86_64'",
 ]
 
 [project.scripts]
